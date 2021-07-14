@@ -3,11 +3,10 @@ let operation = null;
 
 const inputWindow = document.getElementById('inputWindow');
 
-
 document.getElementById('btn_clr').addEventListener('click', function () {
     lastOperand = 0;
     operation = null;
-    inputWindow.value = '';
+    inputWindow.value = '0';
 })
 document.getElementById('btn_1').addEventListener('click', function () {
     inputWindow.value += 1;
@@ -42,8 +41,9 @@ document.getElementById('btn_8').addEventListener('click', function () {
 })
 
 document.getElementById('btn_9').addEventListener('click', function () {
-    inputWindow.value += 9;
-})
+        inputWindow.value += 9;
+    })
+
 
 document.getElementById('btn_0').addEventListener('click', function () {
     inputWindow.value += 0;
@@ -71,6 +71,29 @@ document.getElementById('btn_/').addEventListener('click', function () {
     lastOperand = parseInt(inputWindow.value);
     operation = '/';
     inputWindow.value = '';
+})
+document.getElementById('btn_minus').addEventListener('click', function () {
+    lastOperand = parseInt(-inputWindow.value);
+    operation = 'minus';
+    inputWindow.value = '';
+    if (operation === 'minus') {
+        const result = lastOperand;
+        operation = null;
+        lastOperand = 0;
+        inputWindow.value = result;
+    }
+})
+
+document.getElementById('btn_sqrt').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = 'sqrt';
+    inputWindow.value = '';
+    if (operation === 'sqrt') {
+        const result = Math.sqrt (lastOperand);
+        operation = null;
+        lastOperand = 0;
+        inputWindow.value = result;
+    }
 })
 document.getElementById('btn_calc').addEventListener('click', function () {
     if (operation === '+') {
