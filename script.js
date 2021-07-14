@@ -61,6 +61,17 @@ document.getElementById('btn_-').addEventListener('click', function () {
     inputWindow.value = '';
 })
 
+document.getElementById('btn_*').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = '*';
+    inputWindow.value = '';
+})
+
+document.getElementById('btn_/').addEventListener('click', function () {
+    lastOperand = parseInt(inputWindow.value);
+    operation = '/';
+    inputWindow.value = '';
+})
 document.getElementById('btn_calc').addEventListener('click', function () {
     if (operation === '+') {
         const result = lastOperand + parseInt(inputWindow.value);
@@ -74,4 +85,17 @@ document.getElementById('btn_calc').addEventListener('click', function () {
         lastOperand = 0;
         inputWindow.value = result;
     }
+    if (operation === '*') {
+        const result = lastOperand * parseInt(inputWindow.value);
+        operation = null;
+        lastOperand = 0;
+        inputWindow.value = result;
+}
+    if (operation === '/') {
+    const result = lastOperand / parseInt(inputWindow.value);
+    operation = null;
+    lastOperand = 0;
+    inputWindow.value = result;
+}
+
 })
